@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "rails_helper"
 
 RSpec.describe "Questions", type: :system do
@@ -14,6 +16,6 @@ RSpec.describe "Questions", type: :system do
     fill_in "My turn", with: "test"
 
     click_button "問題を保存する"
-    expect(page).to have_content 'test'
+    expect(page).to have_content "test"
   end
 end
