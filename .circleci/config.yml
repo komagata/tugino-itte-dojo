@@ -65,11 +65,6 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       - run:
-          name: rubocop
-          command: |
-            bundle exec rubocop
-
-      - run:
           name: Rails Test
           command: |
             bin/rails spec
