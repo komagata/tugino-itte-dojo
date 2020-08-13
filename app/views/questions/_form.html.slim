@@ -23,5 +23,8 @@
       .tile.is-child
         = f.label :answer_explanation
         = f.text_area :answer_explanation, class: "textarea"
+      .tile.is-child
+        = f.label :my_turn
+        = f.text_field :my_turn, class: "input"
   = f.submit "問題を保存する", class: "button"
   = link_to "一覧に戻る",questions_path, class: "button"
