@@ -67,7 +67,7 @@ jobs:
       - run:
           name: rubocop
           command: |
-            bundle exec rubocop -c .rubocop.yml
+            bundle exec rubocop
 
       - run:
           name: Rails Test
