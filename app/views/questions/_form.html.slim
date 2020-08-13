@@ -1,0 +1,27 @@
+= form_with model: question, local: true, class: "form" do |f|
+  .tile.is-ancestor
+    .tile.is-parent.is-vertical.is-6
+      .tile.is-child
+        = f.label :title
+        = f.text_field :title, class: "input"
+      .tile.is-child
+        = f.label :kif
+        = f.text_area :kif, class: "textarea"
+    .tile.is-parent.is-vertical.is-6
+      .tile.is-child
+        = f.label :turn
+        = f.text_field :turn, class: "input"
+      .tile.is-child
+        = f.label :last_move
+        = f.text_field :last_move, class: "input"
+      .tile.is-child
+        = f.label :answer
+        = f.text_field :answer, class: "input"
+      .tile.is-child
+        = f.label :explanation
+        = f.text_area :explanation, class: "textarea"
+      .tile.is-child
+        = f.label :answer_explanation
+        = f.text_area :answer_explanation, class: "textarea"
+  = f.submit "問題を保存する", class: "button"
+  = link_to "一覧に戻る",questions_path, class: "button"
