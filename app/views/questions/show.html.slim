@@ -1,0 +1,30 @@
+= javascript_pack_tag 'shogizumen', 'data-turbolinks-track': 'reload'
+.tile.is-ancestor
+  .tile.is-parent.is-vertical.is-6
+    .tile.is-child.is-size-3
+      = "局面図は#{my_turn(@question)}#{@question.last_move}まで"
+    .tile.is-child
+      pre.shogizumen
+        = @question.kif
+      
+  .tile.is-parent.is-vertical.ids-6
+    .tile.is-child
+      = @question.explanation
+    .tile.is-child
+      = @question.answer_explanation
+.tile.is-ancestor
+  .tile.is-parent.is-6
+    .tile.is-child
+      = link_to "答えを見る",questions_path, class: "button"
+      .tile.is-ancestor
+        .tile.is-parent.is-12
+          .tile.is-child
+            = link_to "前の問題",questions_path, class: "button"
+            = link_to "一覧に戻る",questions_path, class: "button"
+            = link_to "次の問題",questions_path, class: "button"
+            .tile.is-ancestor
+              .tile.is-parent.is-12
+                .tile.is-child
+                  = link_to "編集する",questions_path, class: "button"
+                  = link_to "削除する",questions_path, class: "button"
+    
