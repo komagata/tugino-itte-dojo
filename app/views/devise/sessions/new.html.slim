@@ -1,0 +1,21 @@
+.section
+  .container
+    .columns.is-centered
+      .column.is-5.is-4-desktop.card
+        h2.has-text-centered ログイン
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            = f.label :メールアドレス
+            br
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "input", placeholder: "メールアドレス"
+          .field
+            = f.label :パスワード
+            br
+            = f.password_field :password, autocomplete: "current-password", class: "input", placeholder: "パスワード"
+          - if devise_mapping.rememberable?
+            .field
+              = f.check_box :remember_me
+              = f.label :remember_me
+          .actions.has-text-centered
+            = f.submit "ログイン", class: "button"
+        = render "devise/shared/links"
