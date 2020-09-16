@@ -21,8 +21,24 @@ class QuestionsController < ApplicationController
     @questions = Question.where(user_id: current_user.id).page(params[:page]).per(10)
   end
 
+  def update
+    if @question.update(question_params)
+      redirect_to questions_url, notice: "問題を編集しました"
+    else
+      render :edit
+    end
+  end
+
   def show
     
+  end
+
+  def destroy
+    if @question.destroy
+      redirect_to questions_url, notice: "問題を削除しました"
+    else
+      render :index
+    end
   end
 
   private

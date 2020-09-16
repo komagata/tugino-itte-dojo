@@ -27,9 +27,9 @@
               = link_to "次の問題",question_path(@question.next), class: "button", data: {"turbolinks" => false}
         .columns
           .column
-            = link_to "編集する",questions_path, class: "button"
+            = link_to "編集する",edit_question_path, class: "button"
           .column
-            = link_to "削除する",questions_path, class: "button"
+            = link_to "削除する", @question, method: :delete, data: { confirm: "削除してよろしいですか？？"}, class: "button"
 
 javascript:
   document.getElementById("answer").style.display = "none";
