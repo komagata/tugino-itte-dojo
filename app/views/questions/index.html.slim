@@ -1,0 +1,17 @@
+table.table
+  thead
+    tr
+      th
+        | タイトル
+      th
+        | 作成日
+  tbody
+    - @questions.each do |question|
+      tr
+        td
+          = link_to "#{question.title}", question_path(question.id), data: {"turbolinks" => false}
+        td
+          = question.created_at.strftime('%Y/%m/%d')
+        
+
+= link_to "ログアウト", destroy_user_session_path, method: :delete

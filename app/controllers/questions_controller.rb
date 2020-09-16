@@ -2,12 +2,14 @@
 
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i(show edit update destroy)
+  before_action :check_permission, only: %i(show edit update destroy)
   def new
     @question = Question.new
   end
 
   def create
     @question = Question.new(question_params)
+    @question.user_id = current_user.id
     if @question.save
       redirect_to @question, notice: "問題を作成しました"
     else
@@ -16,9 +18,11 @@ class QuestionsController < ApplicationController
   end
 
   def index
+    @questions = Question.where(user_id: current_user.id)
   end
 
   def show
+    
   end
 
   private
@@ -28,5 +32,12 @@ class QuestionsController < ApplicationController
 
     def set_question
       @question = Question.find(params[:id])
+    end
+
+    def check_permission
+      if @question.user_id != current_user.id
+        flash[:notice] = "権限がありません"
+        redirect_to questions_url, notice: "権限がありません"
+      end
     end
 end

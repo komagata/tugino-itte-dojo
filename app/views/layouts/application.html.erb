@@ -8,7 +8,14 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+    <header class="navbar">
+      <%= image_tag "次の一手道場.png", :size =>'300x40'%>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a href="#"><i class="fa fa-user"></i>ログイン</a>
+        </div>
+      </div>
+    </header>
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

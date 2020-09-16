@@ -8,21 +8,36 @@
           = @question.kif
       .column
         = @question.explanation
+        #answer
+          |
+          = @question.answer
         div
         = @question.answer_explanation
     .columns
       .column.is-4.has-text-centered
-        = link_to "答えを見る",questions_path, class: "button"
+        input[class="button" type="button" value="答えを見る" onclick="clickBtn()"]
         .columns
           .column
-            = link_to "前の問題",questions_path, class: "button"
+            - if @question.previous.present?
+              = link_to "前の問題",question_path(@question.previous), class: "button", data: {"turbolinks" => false}
           .column
             = link_to "一覧に戻る",questions_path, class: "button"
           .column
-            = link_to "次の問題",questions_path, class: "button"
+            - if @question.next.present?
+              = link_to "次の問題",question_path(@question.next), class: "button", data: {"turbolinks" => false}
         .columns
           .column
             = link_to "編集する",questions_path, class: "button"
           .column
             = link_to "削除する",questions_path, class: "button"
-    
+
+javascript:
+  document.getElementById("answer").style.display = "none";
+  function clickBtn(){
+    const answer = document.getElementById("answer");
+    if(answer.style.display == "block"){
+      answer.style.display = "none";
+    }else{
+      answer.style.display = "block";
+    }
+  }

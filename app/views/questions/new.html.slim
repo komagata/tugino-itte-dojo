@@ -1,4 +1,6 @@
 .section
   .container
-    h1 "問題作成"
-    = render "form", question: @question
+    .columns.is-centered
+      .column.is-10.is-10-desktop.card
+        h1 "問題作成"
+        = render "form", question: @question
