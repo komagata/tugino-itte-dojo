@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.where(user_id: current_user.id)
+    @questions = Question.where(user_id: current_user.id).page(params[:page]).per(10)
   end
 
   def show

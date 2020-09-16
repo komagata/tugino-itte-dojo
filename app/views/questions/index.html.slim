@@ -13,5 +13,5 @@ table.table
         td
           = question.created_at.strftime('%Y/%m/%d')
         
-
 = link_to "ログアウト", destroy_user_session_path, method: :delete
+= paginate @questions
