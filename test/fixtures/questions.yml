@@ -1,21 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  kif: MyText
-  turn: MyString
-  answer: MyString
-  title: MyString
-  last_move: MyString
-  explanation: MyText
-  answer_explanation: MyText
-  my_turn: MyString
-
-two:
-  kif: MyText
-  turn: MyString
-  answer: MyString
-  title: MyString
-  last_move: MyString
-  explanation: MyText
-  answer_explanation: MyText
-  my_turn: MyString
+question1:
+  id: 1
+  user_id: 1
+  kif: sample
+  turn: 24
+  answer: 7五歩
+  title: 三間飛車の序盤
+  last_move: 6二金
+  explanation: 難しいところです
+  answer_explanation: これで評価値プラス
+  my_turn: 先手

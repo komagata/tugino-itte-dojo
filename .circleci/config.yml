@@ -7,7 +7,7 @@ executors:
           BUNDLER_VERSION: 2.1.2
           BUNDLE_PATH: vendor/bundle
           PGHOST: 127.0.0.1
-          PGUSER: booksapp
+          PGUSER: tugino_itte_dojo
       - image: circleci/postgres:12.3
         environment:
           POSTGRES_USER: tugino_itte_dojo
@@ -63,11 +63,13 @@ jobs:
       - run:
           name: db_wait
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
+        
 
       - run:
           name: Rails Test
           command: |
-            bin/rails spec
+            bin/rails test
+            bin/rails test:system
 workflows:  
   build_and_test:  
     jobs:  
