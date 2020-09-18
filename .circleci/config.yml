@@ -7,7 +7,7 @@ executors:
           BUNDLER_VERSION: 2.1.2
           BUNDLE_PATH: vendor/bundle
           PGHOST: 127.0.0.1
-          PGUSER: booksapp
+          PGUSER: tugino_itte_dojo
       - image: circleci/postgres:12.3
         environment:
           POSTGRES_USER: tugino_itte_dojo
