@@ -67,7 +67,7 @@ jobs:
       - run:
           name: Rails Test
           command: |
-            bin/rails spec
+            bin/rails test
 workflows:  
   build_and_test:  
     jobs:  
