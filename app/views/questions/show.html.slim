@@ -4,6 +4,7 @@
       .column
         = javascript_pack_tag 'shogizumen', 'data-turbolinks-track': 'reload'
         = "局面図は#{my_turn(@question)}#{@question.last_move}まで"
+        = render "questions/tag_list", tag_list: @question.tag_list
         pre.shogizumen
           = @question.kif
       .column
