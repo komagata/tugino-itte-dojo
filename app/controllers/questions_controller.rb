@@ -18,7 +18,12 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.where(user_id: current_user.id).page(params[:page]).per(10)
+    questions = Question.where(user_id: current_user.id)
+    if params[:tag_name]
+      @questions = questions.tagged_with("#{params[:tag_name]}").page(params[:page]).per(10)
+    else
+      @questions = questions.page(params[:page]).per(10)
+    end
   end
 
   def update
@@ -42,7 +47,7 @@ class QuestionsController < ApplicationController
 
   private
     def question_params
-      params.require(:question).permit(:kif, :turn, :answer, :title, :last_move, :explanation, :answer_explanation, :my_turn)
+      params.require(:question).permit(:kif, :turn, :answer, :title, :last_move, :explanation, :answer_explanation, :my_turn, :tag_list)
     end
 
     def set_question

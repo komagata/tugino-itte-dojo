@@ -27,6 +27,9 @@
       = f.label :答えの解説
       = f.text_area :answer_explanation, class: "textarea"
 
+      = f.label :tag_list
+      = f.text_field :tag_list, value: question.tag_list.join(","), class: "input"
+
   .columns
     .column.is-6.has-text-centered
       = f.submit "問題を保存する", class: "button"
