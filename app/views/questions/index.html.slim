@@ -5,6 +5,8 @@ table.table
         | タイトル
       th
         | 作成日
+      th
+        | タグ
   tbody
     - @questions.each do |question|
       tr
@@ -12,6 +14,13 @@ table.table
           = link_to "#{question.title}", question_path(question.id), data: {"turbolinks" => false}
         td
           = question.created_at.strftime('%Y/%m/%d')
+        td
+          = render "questions/tag_list", tag_list: question.tag_list
+
+- @questions.all_tags.each do |tag|
+  - if tag.present?
+      li.tag.is-light.mx-1
+        = link_to tag, questions_path(tag_name: tag)
         
 = link_to "ログアウト", destroy_user_session_path, method: :delete
 = paginate @questions
